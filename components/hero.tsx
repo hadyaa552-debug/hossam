@@ -9,9 +9,9 @@ export default function Hero() {
   return (
     <section className="relative flex items-center overflow-hidden" style={{minHeight:"100vh"}}>
       <div className="absolute inset-0">
-        <img src="https://prod-images.nawy.com/processed/inventory/compounds/1223/gallery/cover_16_9/high.webp"
-          alt="El Attal Holding" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-l from-white/90 via-white/50 to-white/15" />
+        <img src="/images/masterplan.webp"
+          alt="The 101 Master Plan" className="w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-l from-white/92 via-white/55 to-white/20" />
         <div className="absolute inset-0 bg-white/10" />
       </div>
 
@@ -19,7 +19,13 @@ export default function Hero() {
         <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[600px]">
           <div className={`text-right space-y-5 transition-all duration-1000 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
             <div>
-              <p className="text-primary font-bold tracking-widest text-sm uppercase mb-3">El Attal Holding • منذ ١٩٤٨</p>
+              <p className="text-primary font-bold tracking-widest text-sm uppercase mb-2">El Attal Holding • منذ ١٩٤٨</p>
+              {/* New Launch Badge */}
+              <div className="flex justify-end mb-3">
+                <span className="bg-primary text-primary-foreground text-xs font-black px-4 py-1.5 tracking-widest uppercase">
+                  🔥 New Launch — Phase 1 Villas
+                </span>
+              </div>
               <h1 className="text-4xl lg:text-5xl font-black text-foreground leading-tight mb-2">
                 The 101<br/>
                 <span className="text-primary text-2xl lg:text-3xl font-bold">Park Lane • West Leaves</span>

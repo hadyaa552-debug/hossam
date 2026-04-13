@@ -1,20 +1,28 @@
 "use client"
 import type React from "react"
 import { useState } from "react"
+import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { useToast } from "@/hooks/use-toast"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 
 export default function ContactForm({ compact = false }: { compact?: boolean }) {
   const [loading, setLoading] = useState(false)
-  const { toast } = useToast()
+  const router = useRouter()
   const [formData, setFormData] = useState({ name: "", phone: "", project: "" })
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setLoading(true)
+    // GTM dataLayer push — form submission event
+    if (typeof window !== "undefined" && (window as any).dataLayer) {
+      ;(window as any).dataLayer.push({
+        event: "form_submit",
+        form_name: "contact_form",
+        project: formData.project,
+      })
+    }
     try {
       const res = await fetch("https://formsubmit.co/ajax/apkzoz85@gmail.com", {
         method: "POST",
@@ -30,18 +38,17 @@ export default function ContactForm({ compact = false }: { compact?: boolean }) 
         }),
       })
       if (res.ok) {
-        toast({ title: "تم الإرسال!", description: "سنتواصل معك في أقرب وقت" })
-        setFormData({ name: "", phone: "", project: "" })
+        router.push("/thank-you")
       } else throw new Error()
     } catch {
-      toast({ title: "خطأ", description: "يرجى المحاولة مرة أخرى", variant: "destructive" })
-    } finally { setLoading(false) }
+      setLoading(false)
+    }
   }
 
   return (
     <Card className="shadow-xl border border-border bg-white">
       <CardHeader className="pb-2">
-        <CardTitle className="text-xl font-bold text-foreground text-center">احجز استشارة مجانية</CardTitle>
+        <CardTitle className="text-xl font-bold text-foreground text-center">تواصل مع قسم المبيعات</CardTitle>
         <p className="text-sm text-muted-foreground text-center">سيتواصل معك مستشارنا خلال ٢٤ ساعة</p>
       </CardHeader>
       <CardContent>
@@ -65,7 +72,7 @@ export default function ContactForm({ compact = false }: { compact?: boolean }) 
           </Select>
           <Button type="submit" disabled={loading}
             className="w-full h-12 bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-base">
-            {loading ? "جاري الإرسال..." : "إرسال الطلب"}
+            {loading ? "جاري الإرسال..." : "تواصل مع قسم المبيعات"}
           </Button>
         </form>
       </CardContent>
