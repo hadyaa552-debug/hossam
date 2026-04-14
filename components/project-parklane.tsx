@@ -1,7 +1,7 @@
 "use client"
 
 export default function ProjectParklane() {
-  const phone = "+201119770408"
+  const phone = "+201109727449"
   const waLink = `https://wa.me/${phone.replace(/[^0-9]/g, "")}?text=${encodeURIComponent("مرحباً، أنا مهتم بمشروع Park Lane من El Attal Holding وأريد معرفة المزيد")}`
 
   const details = [

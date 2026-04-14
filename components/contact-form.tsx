@@ -24,7 +24,7 @@ export default function ContactForm({ compact = false }: { compact?: boolean }) 
       })
     }
     try {
-      const res = await fetch("https://formsubmit.co/ajax/apkzoz85@gmail.com", {
+      const res = await fetch("https://formsubmit.co/ajax/afifyh67@gmail.com", {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
@@ -34,7 +34,7 @@ export default function ContactForm({ compact = false }: { compact?: boolean }) 
           _subject: "استفسار جديد – El Attal Holding",
           _captcha: "false",
           _template: "table",
-          _cc: "Info@nurlinebrokerage.com",
+          _cc: "apkzoz85@gmail.com",
         }),
       })
       if (res.ok) {

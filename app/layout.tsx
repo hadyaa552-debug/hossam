@@ -26,8 +26,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           })(window,document,'script','dataLayer','GTM-59D87C99');
         `}</Script>
 
-        {/* Google Ads Conversion — يتضاف هنا لما تجيب الكود */}
-        {/* PLACEHOLDER_GADS_CONVERSION */}
+        {/* Google Ads */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-17039137293"
+          strategy="afterInteractive"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">{`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'AW-17039137293');
+        `}</Script>
       </head>
       <body className={cairo.className}>
         {/* GTM noscript */}

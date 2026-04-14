@@ -1,5 +1,5 @@
 "use client"
-const phone = "201119770408"
+const phone = "201109727449"
 const msg = encodeURIComponent("مرحباً، أنا مهتم بمشاريع El Attal Holding وأريد معرفة المزيد")
 
 export default function WhatsAppWidget() {

@@ -32,11 +32,11 @@ export default function ThankYou() {
 
         <div className="bg-muted/30 border border-border p-5 text-right space-y-3">
           <p className="font-bold text-foreground text-sm">أو تواصل معنا مباشرة:</p>
-          <a href="tel:+201119770408" className="flex items-center justify-between py-2 border-b border-border hover:text-primary transition-colors">
-            <span className="font-bold" dir="ltr">01119770408</span>
+          <a href="tel:+201109727449" className="flex items-center justify-between py-2 border-b border-border hover:text-primary transition-colors">
+            <span className="font-bold" dir="ltr">01109727449</span>
             <span className="text-sm text-muted-foreground">اتصال مباشر</span>
           </a>
-          <a href="https://wa.me/201119770408" target="_blank" rel="noopener noreferrer"
+          <a href="https://wa.me/201109727449" target="_blank" rel="noopener noreferrer"
             className="flex items-center justify-between py-2 hover:text-primary transition-colors">
             <span className="font-bold text-green-600">واتساب</span>
             <span className="text-sm text-muted-foreground">رد فوري</span>

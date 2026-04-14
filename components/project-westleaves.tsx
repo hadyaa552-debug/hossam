@@ -1,7 +1,7 @@
 "use client"
 
 export default function ProjectWestLeaves() {
-  const phone = "+201119770408"
+  const phone = "+201109727449"
   const waLink = `https://wa.me/${phone.replace(/[^0-9]/g, "")}?text=${encodeURIComponent("مرحباً، أنا مهتم بمشروع West Leaves من El Attal Holding وأريد معرفة المزيد")}`
 
   const details = [

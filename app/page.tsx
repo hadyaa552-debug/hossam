@@ -28,7 +28,7 @@ export default function Home() {
           </div>
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             <div className="text-right space-y-4">
-              <a href="tel:+201119770408" className="text-2xl font-black text-foreground hover:text-primary block" dir="ltr">01119770408</a>
+              <a href="tel:+201109727449" className="text-2xl font-black text-foreground hover:text-primary block" dir="ltr">01109727449</a>
               <div className="space-y-0">
                 {[
                   { name: "The 101", loc: "مدينة المستقبل – Plot 1 خلف البوابة الرئيسية" },
