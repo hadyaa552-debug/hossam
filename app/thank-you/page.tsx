@@ -4,11 +4,22 @@ import Link from "next/link"
 
 export default function ThankYou() {
   useEffect(() => {
-    // GTM dataLayer push — thank you page
-    if (typeof window !== "undefined" && (window as any).dataLayer) {
+    if (typeof window === "undefined") return
+
+    // GTM dataLayer push
+    if ((window as any).dataLayer) {
       ;(window as any).dataLayer.push({
         event: "thank_you_page",
         page: "thank_you",
+      })
+    }
+
+    // Google Ads Conversion
+    if (typeof (window as any).gtag === "function") {
+      ;(window as any).gtag("event", "conversion", {
+        send_to: "AW-17039137293/Eep3CLvVgpwcEI208rw_",
+        value: 1.0,
+        currency: "USD",
       })
     }
   }, [])
@@ -16,7 +27,6 @@ export default function ThankYou() {
   return (
     <main className="min-h-screen bg-background flex items-center justify-center px-4">
       <div className="text-center max-w-lg mx-auto space-y-6">
-        {/* Icon */}
         <div className="w-20 h-20 bg-primary/10 border border-primary/20 rounded-full flex items-center justify-center mx-auto">
           <svg className="w-10 h-10 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
