@@ -16,7 +16,21 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ar" dir="rtl" suppressHydrationWarning>
-      <head>
+      <body className={cairo.className}>
+        {/* GTM noscript */}
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-59D87C99"
+            height="0" width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
+
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
+          {children}
+          <Toaster />
+        </ThemeProvider>
+
         {/* Google Tag Manager */}
         <Script id="gtm-head" strategy="afterInteractive">{`
           (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -27,30 +41,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         `}</Script>
 
         {/* Google Ads */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=AW-17039137293"
-          strategy="afterInteractive"
-        />
+        <Script id="gtag-lib" strategy="afterInteractive" src="https://www.googletagmanager.com/gtag/js?id=AW-17039137293" />
         <Script id="gtag-init" strategy="afterInteractive">{`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
           gtag('config', 'AW-17039137293');
         `}</Script>
-      </head>
-      <body className={cairo.className}>
-        {/* GTM noscript */}
-        <noscript>
-          <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-59D87C99"
-            height="0" width="0"
-            style={{ display: "none", visibility: "hidden" }}
-          />
-        </noscript>
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
-          {children}
-          <Toaster />
-        </ThemeProvider>
       </body>
     </html>
   )
